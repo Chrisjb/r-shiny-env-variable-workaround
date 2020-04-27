@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    user: 'root'
+    volumes: 
+      - .:/app
+    environment:
+      MY_ENV_VARIABLE: 'HELLO'
+    ports: 
+      - 3838:3838
