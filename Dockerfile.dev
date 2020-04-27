@@ -13,13 +13,6 @@ RUN apt-get update && apt-get install -y \
     libssh2-1-dev \
     libcairo2-dev \
     sudo
-   
-  
-
-# install R packages required 
-# (change it dependeing on the packages you need)
-RUN R -e "install.packages(c('pool','plotly', 'leaflet','leaflet.extras', 'shiny', 'DBI', 'RPostgreSQL', 'sf', 'geosphere', 'promises', 'future', 'remotes', 'ggthemes', 'ggsoccer'))"
-RUN R -e "remotes::install_github('rstudio/bootstraplib')"
 
 # copy the app to the image
 COPY ./env-variable/app.R /srv/shiny-server/
