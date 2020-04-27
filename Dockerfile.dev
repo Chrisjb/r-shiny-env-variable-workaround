@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
 
 # copy the app to the image
 COPY ./env-variable/app.R /srv/shiny-server/
+COPY shiny-server.sh /usr/bin/shiny-server.sh
 
 EXPOSE 3838
 
@@ -23,4 +24,4 @@ EXPOSE 3838
 RUN sudo chown -R shiny:shiny /srv/shiny-server
 
 # run app
-CMD ["/usr/bin/shiny-server.sh"]
+RUN ["chmod", "+x", "/usr/bin/shiny-server.sh"]
